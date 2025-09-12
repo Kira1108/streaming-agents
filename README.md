@@ -1,1 +1,3 @@
-# The fucking agents
+# Streaming Agents
+
+> Make streaming output agents observable.
