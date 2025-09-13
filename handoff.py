@@ -27,7 +27,7 @@ class SequentialHandoffAgent:
     
     def handoff_to_wechat_customer_service_agent(self):
         """If the upstream agent determines to add the customer's wechat account, handoff to wechat customer service agent using this tool."""
-        print("Handoff to WeChat customer service agent")
+        print("[日志通知]Handoff to WeChat customer service agent")
         self.current_agent = self.handoff_to_agent
         self.on_change = True
         return "You are now connected to a WeChat customer service agent."
