@@ -1,6 +1,6 @@
 from llama_index.core.agent.workflow import FunctionAgent
 from llama_index.core.llms import ChatMessage
-from llama_index.llms.ollama import Ollama
+from llama_index.core.llms.function_calling import FunctionCallingLLM
 from tools import add, multiply
 from dataclasses import dataclass
 from typing import List
@@ -34,9 +34,7 @@ DEFAULT_SYSTEM_PROMPT = "You are a helpful assistant, when answering questions y
    
 @dataclass 
 class Agent:
-    llm:Ollama = field(
-        default_factory=lambda: Ollama(model="qwen3:8b", request_timeout=60.0, thinking=False)
-    )
+    llm:FunctionCallingLLM 
     system_prompt:str = DEFAULT_SYSTEM_PROMPT
     tools:List = field(default_factory=lambda: [multiply, add])
     name:str = "DefaultAgent"
