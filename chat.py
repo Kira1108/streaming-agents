@@ -15,8 +15,11 @@ class ChatWithAgent:
                 print(event.delta, end="", flush=True)
             else:
                 self.messages.append(event.message)
-        self.messages.append({"role": "assistant", "content": buffer})
-        
-        if hasattr(self.agent, "on_change") and self.agent.on_change:
+        if len(buffer) > 0:
+            self.messages.append({"role": "assistant", "content": buffer})
+        else:
+            # I want to rerun the procedure, chat method
             await self.chat(message)
-            self.agent.on_change = False
+
+            
+        

@@ -23,6 +23,13 @@ class ToolCallResultEvent:
 class TextStreamDeltaEvent:
     delta:str
     
+    
+@dataclass
+class AgentHandoffEvent:
+    from_agent:str = ""
+    to_agent:str = ""
+
+
 DEFAULT_SYSTEM_PROMPT = "You are a helpful assistant, when answering questions you always use `multiply` and `add` to do all multiplications and additions. always use emojis in your answers."
    
 @dataclass 
