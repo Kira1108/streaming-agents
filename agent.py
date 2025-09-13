@@ -33,6 +33,16 @@ class Agent:
     system_prompt:str = DEFAULT_SYSTEM_PROMPT
     tools:List = field(default_factory=lambda: [multiply, add])
     
+    
+    def extend_tools(self, tools:List):
+        self.tools.extend(tools)
+        
+        self.agent = FunctionAgent(
+            llm=self.llm,
+            system_prompt=self.system_prompt,
+            tools = self.tools
+        )
+    
     def __post_init__(self):
             
         self.agent = FunctionAgent(

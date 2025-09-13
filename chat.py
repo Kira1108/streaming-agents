@@ -16,3 +16,7 @@ class ChatWithAgent:
             else:
                 self.messages.append(event.message)
         self.messages.append({"role": "assistant", "content": buffer})
+        
+        if hasattr(self.agent, "on_change") and self.agent.on_change:
+            await self.chat(message)
+            self.agent.on_change = False
