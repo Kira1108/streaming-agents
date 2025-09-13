@@ -20,6 +20,3 @@ class ChatWithAgent:
         else:
             # I want to rerun the procedure, chat method
             await self.chat(message)
-
-            
-        
