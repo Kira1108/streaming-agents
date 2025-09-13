@@ -39,6 +39,7 @@ class Agent:
     )
     system_prompt:str = DEFAULT_SYSTEM_PROMPT
     tools:List = field(default_factory=lambda: [multiply, add])
+    name:str = "DefaultAgent"
     
     
     def extend_tools(self, tools:List):
@@ -59,7 +60,7 @@ class Agent:
         )
         
     def print_messages(self, messages):
-        print("=== Chat Messages ===")
+        print(f"=== Chat Messages {self.name}===")
         for msg in messages:
             role = msg.get('role', 'UnknownRole')
             content = msg.get('content', '')
