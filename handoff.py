@@ -17,7 +17,7 @@ class SequentialHandoffAgent:
                     fn = self.handoff_to_wechat_customer_service_agent,
                     name = "handoff_to_wechat_customer_service_agent",
                     description="If the upstream agent determines to add the customer's wechat account, handoff to wechat customer service agent using this tool.",
-                    return_direct=True
+                    return_direct=False
                 )
             ]
         )
